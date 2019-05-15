@@ -1,16 +1,17 @@
 package com.yamanda.springbootdemo.message;
 
+import com.yamanda.springbootdemo.pojo.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.stereotype.Component;
 
-public class MsgReceiver implements CommandLineRunner {
+@Component
+public class MsgReceiver {
 
-    @Autowired
-    JmsTemplate jmsTemplate;
-
-    @Override
-    public void run(String... args) throws Exception {
-        jmsTemplate.send("my-destination",new MsgCreator());
+    @JmsListener(destination = "mail-box",containerFactory = "myFactory")
+    public void receiveMsg(Email email){
+        System.out.println(email);
     }
 }

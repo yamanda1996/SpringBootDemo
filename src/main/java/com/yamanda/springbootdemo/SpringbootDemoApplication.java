@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
+import org.springframework.jms.annotation.EnableJms;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 //@Import({ImportConfiguration.class})
 @SpringBootApplication
 @EnableCaching
+@EnableJms
 public class SpringbootDemoApplication {
 
 //   SpringbootDemoApplication @Value("${book.author}")
